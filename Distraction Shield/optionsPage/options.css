@@ -51,14 +51,6 @@ body {
 
 /* ---------- ---------- table ---------- ---------- */
 
-.highlight {
-    background-color: lightskyblue;
-}
-
-.table-striped > tbody > tr:nth-of-type(odd).highlight {
-    background-color: lightskyblue;
-}
-
 .pageTitle {
     max-width: 500px;
     white-space: nowrap;
@@ -87,11 +79,14 @@ body {
     border-bottom: 2px solid;
 }
 
-/* ---------- ---------- Slider ---------- ---------- */
-
-.amountColumn {
-    overflow: hidden;
+/* ---------- ---------- option button ---------- ---------- */
+.option-button {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    width:90%;
 }
+
+/* ---------- ---------- Slider ---------- ---------- */
 
 input[type=range] {
     -webkit-appearance: none;

@@ -3,25 +3,33 @@ import * as exerciseTime from './exerciseTime';
 import * as storage from '../storage/storage'
 import BlockedSiteList from '../../classes/BlockedSiteList'
 import StorageListener from "../storage/StorageListener"
+import * as logger from '../../modules/logger'
 
-/**
- * The tracker tracks whether you are currently working on exercises.
- * Every second, the "alarm" is fired, and the url of the current tab is examined.
- * If this url corresponds with the zeeguu url, the time spent on exercises counter is incremented.
- */
 export default class Tracker {
 
+    /**
+     * The tracker tracks whether you are currently working on exercises.
+     * Every second, the "alarm" is fired, and the url of the current tab is examined.
+     * If this url corresponds with the zeeguu url, the time spent on exercises counter is incremented.
+     * @constructs Tracker
+     * @class
+     */
     constructor() {
+        /** @member {boolean} Tracker#wasIdle */
         this.wasIdle = false;
+        /** @member {BlockedSiteList} Tracker#blockedsites */
         this.blockedsites = new BlockedSiteList();
+        /** @member {Date} Tracker#previousTime */
         this.previousTime = new Date();
+        /** @member {Tab} Tracker#currentTab */
         this.currentTab = null;
-        this.getCurrentTab().then((tab) => this.currentTab = tab);
+        this.getCurrentTab().then((tab) => this.currentTab = tab).catch(() => this.currentTab = null);
     }
 
     /**
      * gets the current tab
      * @returns {Promise}
+     * @function Tracker#getCurrentTab
      */
     getCurrentTab() {
         return new Promise(function (resolve, reject) {
@@ -37,6 +45,7 @@ export default class Tracker {
 
     /**
      * Initialize the alarm, and initialize the idle-checker.
+     * @function Tracker#init
      */
     init() {
         this.getBlockedSites();
@@ -55,6 +64,7 @@ export default class Tracker {
      * on a blocked site needs to be updated.
      * This occurs when the trackerAlarm fires, the idleState is updated,
      * the active tab is changed, or the tab is updated.
+     * @function Tracker#triggerUpdateTime
      */
     triggerUpdateTime() {
         let tab = this.currentTab;
@@ -64,9 +74,11 @@ export default class Tracker {
             if(tab) {
                 if (this.compareDomain(tab.url, constants.zeeguuExTracker)) {
                     this.incTimeExercises(timeSpent);
+                    logger.logToFile(constants.logEventType.spent, `exercises`, `${timeSpent/1000}`, constants.logType.statistics);
                 } else {
                     this.matchToBlockedSites(tab.url).then((site) => {
                         this.incTimeBlockedSite(site, timeSpent);
+                        logger.logToFile(constants.logEventType.spent, `${tab.url}`, `${timeSpent/1000}`, constants.logType.statistics);
                     });
                 }
             }
@@ -77,6 +89,7 @@ export default class Tracker {
 
     /**
      * Creates the tracker alarm which fires every x minutes. x defined by constants.trackerAlarmFrequency
+     * @function Tracker#createTrackerAlarm
      */
     createTrackerAlarm(){
         chrome.alarms.create('trackerAlarm', {periodInMinutes: constants.trackerAlarmFrequency});
@@ -88,6 +101,7 @@ export default class Tracker {
      * If the user becomes active again, the triggerUpdateTime is fired,
      * and the trackerAlarm is created again.
      * @param idleState state received from the idleListener
+     * @function Tracker#updateIdleState
      */
     updateIdleState(idleState) {
         if(idleState == "idle") {
@@ -101,6 +115,7 @@ export default class Tracker {
 
     /**
      * Adds a idleListener to the background to detect whether a user is idle or not.
+     * @function Tracker#addIdleListener
      */
     addIdleListener() {
         // When the user does not input anything for 15 seconds, set the state to idle.
@@ -111,6 +126,7 @@ export default class Tracker {
     /**
      * Adds an alarmListener to listen for the trackerAlarm. Every time the alarm ticks, the triggerUpdateTime
      * method is fired.
+     * @function Tracker#addAlarmListener
      */
     addAlarmListener() {
         chrome.alarms.onAlarm.addListener((alarm) => {
@@ -121,7 +137,7 @@ export default class Tracker {
                    } else {
                        this.currentTab = tab;
                    }
-                }).catch((error) => {
+                }).catch(() => {
                     this.currentTab = null;
                 })
             }
@@ -130,17 +146,24 @@ export default class Tracker {
 
     /**
      * Adds an onActiveTabChangeListener. When a tab becomes active, the triggerUpdateTime method is called.
+     * @function Tracker#addOnActiveTabChangeListener
      */
     addOnActiveTabChangeListener() {
         chrome.tabs.onActivated.addListener((activeInfo) => {
             chrome.tabs.get(activeInfo.tabId, (tab) => {
-                this.triggerUpdateTime();
-                this.currentTab = tab;
+                if(typeof tab !== 'undefined') {
+                    this.triggerUpdateTime();
+                    this.currentTab = tab;
+                } else {
+                    this.currentTab = null;
+                }
+                if(chrome.runtime.lastError) return;
             })
         });
     }
     /**
      * Adds an onTabUpdateListener. When a tab updates(e.g. a new address is filled in), the triggerUpdateTime method is called.
+     * @function Tracker#addOnTabUpdateListener
      */
     addOnTabUpdateListener() {
         chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
@@ -158,6 +181,7 @@ export default class Tracker {
     /**
      * Handles the changes received from the storageOnChangedListener.
      * @param changes received from the storageOnChangedListener.
+     * @function Tracker#handleStorageChange
      */
     handleStorageChange(changes) {
         if (constants.tds_blacklist in changes) {
@@ -175,6 +199,7 @@ export default class Tracker {
      * Get a list of the time wasted on all BlockedSites from the BlockedSiteList
      * @param {BlockedSiteList} blockedsites
      * @returns {Array}
+     * @function Tracker#retrieveTimeSpent
      */
     retrieveTimeSpent(blockedsites) {
         let list = [];
@@ -184,8 +209,9 @@ export default class Tracker {
 
     /**
      * Puts the timeValues previously extracted using the retrieveTimeSpent method back in to the
-     * this.blockedsites field.
+     * {@link Tracker#blockedsites} field.
      * @param timeValues
+     * @function Tracker#putBackTimeSpent
      */
     putBackTimeSpent(timeValues) {
         this.blockedsites.map((blockedSite) => {
@@ -195,7 +221,8 @@ export default class Tracker {
     }
 
     /**
-     * retrieve the BlockedSiteList from the storage.
+     * adds the BlockedSiteList from the storage to {@link Tracker#blockedsites}.
+     * @function Tracker#getBlockedSites
      */
     getBlockedSites() {
         storage.getBlacklistPromise().then((result) => {
@@ -206,6 +233,7 @@ export default class Tracker {
     /**
      * Increments the time spent on exercises using the exerciseTime module.
      * @param timeSpent the amount by which the time spent should be incremented.
+     * @function Tracker#incTimeExercises
      */
     incTimeExercises(timeSpent) {
         exerciseTime.incrementTodayExerciseTime(timeSpent);
@@ -215,6 +243,7 @@ export default class Tracker {
      * Increments the timeSpent for the blockedSite inputted.
      * @param site the blockedSite of which the timeSpent should be incremented.
      * @param timeSpent the amount by which the time spent should be incremented.
+     * @function Tracker#incTimeBlockedSite
      */
     incTimeBlockedSite(site, timeSpent) {
         site.timeSpent += timeSpent;
@@ -225,6 +254,7 @@ export default class Tracker {
      * Matches the inputted tab to the blocked sites.
      * @param tabActive
      * @returns {Promise} resolves to the matched blockedSite. Rejects if there is no match.
+     * @function Tracker#matchToBlockedSites
      */
     matchToBlockedSites(tabActive) {
         return new Promise((resolve, reject) => {
@@ -238,6 +268,7 @@ export default class Tracker {
      * @param url Url to be compared.
      * @param domain Domain of which a regex is created.
      * @returns {Boolean} containing whether the domain-regex matches the url.
+     * @function Tracker#compareDomain
      */
     compareDomain(url, domain) {
         return Tracker.compareUrlToRegex(this.createRegexFromDomain(domain), url);
@@ -247,6 +278,7 @@ export default class Tracker {
      * Creates a regex string which using the domain of an url.
      * @param domain of which a regex should be created.
      * @returns {string} regex string
+     * @function Tracker#createRegexFromDomain
      */
     createRegexFromDomain(domain) {
         return "^(http[s]?:\\/\\/)?(.*)" + domain + ".*$";
@@ -257,6 +289,7 @@ export default class Tracker {
      * @param regex
      * @param url
      * @returns {Boolean} Returns true if the url matches the regex. False if they do not match.
+     * @function Tracker#compareUrlToRegex
      */
     static compareUrlToRegex(regex, url) {
         return RegExp(regex).test(url);

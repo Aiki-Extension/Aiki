@@ -1,4 +1,10 @@
 /**
+ * This module has some functions we'd like to have in the browser, for special casing things like opening a tab or
+ * modifying user-history
+ * @module browserutil
+ */
+
+/**
  * This function uses the chrome tabs api to see if a tab is open with a certain url.
  * Calls the callback with: the id of the tab if a tab is open with the given url, false otherwise
  * @param {string} url Url to check for
@@ -20,6 +26,7 @@ export function isOpenTab (url, callback) {
  * A function that opens a tab with a given url, only if none is open yet,
  * switches to the already open tab otherwise
  * @param {string} url Url to check for
+ * @param {function} callback
  */
 export function openTabSingleton(url, callback = () => {}) {
     isOpenTab(url, (result) => {
@@ -30,7 +37,6 @@ export function openTabSingleton(url, callback = () => {}) {
         }
         callback();
     });
-
 }
 
 /**

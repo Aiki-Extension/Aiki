@@ -7,19 +7,19 @@ import * as interception from '../modules/statistics/interception'
 import {tds_blacklist, tds_interceptDateList, tds_exerciseTime} from '../constants'
 import StorageListener from "../modules/storage/StorageListener"
 
+/**
+ * This file contains the code and functions which control the statistics page.
+ * Data is retrieved from the storage, and is passed to various tables.
+ * @mixin statisticsPage
+ */
+
 let interceptionCounterTable = null;
 let blacklistTable = null;
 let exerciseTimeTable = null;
 
 /**
- * This file contains the code and functions which control the statistics page.
- * Data is retrieved from the storage, and is passed to various tables.
- */
-
-/* ----------- ----------- Initialization ----------- ----------- */
-
-/**
  * initial function that is fired when the page is loaded.
+ * @memberOf statisticsPage
  */
 document.addEventListener("DOMContentLoaded", function () {
     connectHtmlFunctionality();
@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
  * Initialize HTML elements and set the data in the tables. Retrieves the data from the storage using Promises.
  * Waits until all data is retrieved, and then populates the interceptionCounterTable, the blacklistTable and the
  * exerciseTimeTable.
+ * @memberOf statisticsPage
  */
 function initStatisticsPage() {
     Promise.all([storage.getInterceptDateList(), storage.getExerciseTimeList(), storage.getBlacklistPromise()])
@@ -39,11 +40,14 @@ function initStatisticsPage() {
             let exerciseTime = response[1];
 
             setInterceptionCounterTable(interceptDateList);
-            blacklistTable.render(blockedSiteList.list);
+            blacklistTable.render(blockedSiteList);
             exerciseTimeTable.render(exerciseTime);
         });
 }
-
+/**
+ * @param interceptDateList
+ * @memberOf statisticsPage
+ */
 function setInterceptionCounterTable(interceptDateList){
     let counters = interception.calcInterceptData(interceptDateList);
     interceptionCounterTable.render(counters);
@@ -51,6 +55,7 @@ function setInterceptionCounterTable(interceptDateList){
 
 /**
  * Connects HTML functionality to javascript classes
+ * @memberOf statisticsPage
  */
 function connectHtmlFunctionality() {
     interceptionCounterTable = new InterceptionCounterTable();
@@ -58,11 +63,16 @@ function connectHtmlFunctionality() {
     exerciseTimeTable = new ExerciseTimeTable($('#exerciseTime'));
 }
 
-/* ----------- ----------- Storage Listener ----------- ----------- */
+/**
+ * Storage Listener
+ * @type {StorageListener}
+ * @method onStorageChange
+ * @memberOf statisticsPage
+ */
 new StorageListener((changes) => {
     if (tds_blacklist in changes) {
         let newBlockedSiteList = BlockedSiteList.deserializeBlockedSiteList(changes[tds_blacklist].newValue);
-        blacklistTable.render(newBlockedSiteList.list);
+        blacklistTable.render(newBlockedSiteList);
     }
     if (tds_exerciseTime in changes) {
         let newExerciseTime = changes[tds_exerciseTime].newValue;

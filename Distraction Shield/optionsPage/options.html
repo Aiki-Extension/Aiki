@@ -1,12 +1,15 @@
 <!doctype html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Options page for The Distraction Shield</title>
     <script src="../dependencies/jquery/jquery-1.10.2.js"></script>
+    <script src="../dependencies/bootstrap/js/bootstrap.min.js"></script>
     <script src="../js-src/options.bundle.js"></script>
     <link rel="stylesheet" type="text/css" href="../dependencies/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="options.css">
+    <link rel="stylesheet" type="text/css" href="../dataCollection/dataCollection.css">
+
 </head>
 
 <body>
@@ -86,13 +89,30 @@
             </div>
         </div>
     </div>
-
-    <div class="link-bottom">
-        <a id="tourRestartLink" href="javascript:void(0)">Click to take the welcome tour again.</a>
-    </div>
-
-    <div  class="link-bottom">
-        <a id="feedbackLink" href="javascript:void(0)">We would love to hear what you have to say. Click to send us some feedback.</a>
+    <div class="row">
+        <div class="panel panel-default col-md-offset-2 col-md-8 d-flex justify-content-between">
+            <div class="col-md-4">
+                <button class="btn btn-primary option-button" id="tourRestartButton">
+                    <span class="glyphicon glyphicon-repeat">
+                    </span> Tour</button>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-primary option-button" id="feedbackButton">
+                    <span class="glyphicon glyphicon-pencil">
+                    </span> Feedback</button>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-primary option-button" id="dataSettingsButton">
+                    <span class="glyphicon glyphicon-wrench">
+                    </span> Data Settings</button>
+            </div>
+            <div id="dataConsentModal" class="modal fade text-center">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 </body>

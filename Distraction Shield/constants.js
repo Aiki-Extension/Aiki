@@ -32,6 +32,11 @@ export const idleTime = 15;
 export const trackerAlarmFrequency = 1.0;
 
 /* ---------- ----- UserSettings, inject ----- ---------- */
+/**
+ * Extension interception modes.
+ * @readonly
+ * @enum {lazy | pro} mode
+ */
 export const modes = {
     lazy: {
         label: "lazy",
@@ -52,7 +57,6 @@ export const loginMessage = "Please log in to get productive!";
 
 /* ---------- ----- BlockedSiteList ----- ---------- */
 export const newUrlNotUniqueError = "Oops! You already blocked this website: ";
-export const newUrlSuccess = "Successfully blocked ";
 
 /* ---------- ----- Whitelist ----- ----- ---------- */
 
@@ -74,20 +78,45 @@ export const FILE_NOT_FOUND_ERROR  = 404;
 export const SERVER_ERROR = 500;
 export const REQUEST_ABORTED_ERROR = 0;
 
-/**/
-export const dataCollectionMsg = 'Please be aware that anonymous data are collected for purposes of improving the extension. '+
-    'The data cannot be traced back to you as a person.\n\nWe respect your privacy.';
+/* -------------------- Logger constants ----------------------- */
+// time interval in minutes between sending data to server
+export const LOGGING_INTERVAL = 1440;
+// time delay between first use of extension and data logging
+export const LOGGING_ALARM_DELAY = 720;
+
+/**
+ * Logger event types.
+ * @readonly
+ * @enum {string} event type
+ */
+export const logEventType = {
+    changed:'changed',
+    intercepted:'intercepted',
+    spent:'spent',
+    failed:'failed'
+};
+
+/**
+ * Log types.
+ * @readonly
+ * @enum {string} log type
+ */
+
+export const logType = {
+    statistics:'statistics',
+    settings:'settings'
+};
 
 /* -------------------- Text Messages ----------------------- */
 export const zeeguuInfoText = "Hey, you tried to enter one of the sites you wanted to be protected from!";
 
 /* -------------------- Keypress export constants ----------------------- */
 /* ---------- ----- optionsPage/htmlFunctionality ----- ---------- */
-export const KEY_DELETE = 46;
 export const KEY_ENTER = 13;
 
-/* -------------------- Number export constants ----------------------- */
 
+
+/* -------------------- Number export constants ----------------------- */
 // The amount of milliseconds in one day
 export const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
 
@@ -101,3 +130,5 @@ export const tds_settings = "tds_settings";
 export const tds_interceptCounter = "tds_interceptCounter";
 export const tds_interceptDateList = "tds_interceptDateList";
 export const tds_exerciseTime = "tds_exerciseTime";
+export const tds_logs = "tds_logs";
+export const tds_logfile = "tds_logfile";

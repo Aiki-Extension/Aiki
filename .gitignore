@@ -1,6 +1,7 @@
 .gitignore
 
 npm-debug.log
+package-lock.json
 
 sampleExtension/.idea
 .idea/
@@ -15,8 +16,4 @@ sampleExtension/.idea
 
 #documentation
 /out
-
-
-sampleExtension/.idea
-.idea/
-
+.esdoc.json

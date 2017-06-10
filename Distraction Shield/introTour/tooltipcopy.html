@@ -3,26 +3,33 @@
 <html>
 <head>
     <title>Tooltip for The Distraction Shield</title>
-    <link href="../dependencies/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../introTour/tooltipcopy.css">
     <link href="../dependencies/bootstrapTour/bootstrap-tour-standalone.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../dependencies/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../introTour/tooltipcopy.css">
+    <link rel="stylesheet" type="text/css" href="../dataCollection/dataCollection.css">
 </head>
 
 <body>
 <h3>The Distraction Shield</h3>
 <div class="btn-group-vertical">
-    <button id="saveBtn" class="btn btn-info"> Save current page</button>
-    <button id="statisticsBtn" class="btn btn-primary"> More statistics <span class="glyphicon glyphicon-equalizer"
+    <button id="saveBtn" class="btn btn-info">Block</button>
+    <button id="statisticsBtn" class="btn btn-primary"> Statistics <span class="glyphicon glyphicon-equalizer"
                                                                               aria-hidden="true"></span></button>
     <button id="optionsBtn" class="btn btn-primary"> Options <span class="glyphicon glyphicon-cog"
                                                                    aria-hidden="true"></span></button>
+    <div id="dataConsentModal" class="modal fade text-center">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+    <script src="../dependencies/jquery/jquery-1.10.2.js"></script>
+    <script src="../dependencies/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../dependencies/bootstrapTour/bootstrap-tour-standalone.min.js"></script>
+    <script src="../js-src/tooltip.bundle.js"></script>
+    <script src="../js-src/tour.bundle.js"></script>
 
 </div>
-<script src="../dependencies/jquery/jquery-1.10.2.js"></script>
-<script src="../tooltipPage/tooltip.js"></script>
-<script src="../dependencies/jquery/jquery-1.10.2.js"></script>
-<script src="../dependencies/bootstrapTour/bootstrap-tour-standalone.min.js"></script>
-<script src="../introTour/introTour.js"></script>
-</body>
 
+</body>
 </html>
