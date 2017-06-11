@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">Distraction Shield/background.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <a data-ice="repoURL" href="https://github.com/RUGSoftEng/2017-The-Distraction-Shield.git" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-initBackground">initBackground</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-FAVICONLINK">FAVICONLINK</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-FILE_NOT_FOUND_ERROR">FILE_NOT_FOUND_ERROR</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-INVALID_URL_MESSAGE">INVALID_URL_MESSAGE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-KEY_ENTER">KEY_ENTER</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGGING_ALARM_DELAY">LOGGING_ALARM_DELAY</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGGING_INTERVAL">LOGGING_INTERVAL</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MAX_TURN_OFF_TIME">MAX_TURN_OFF_TIME</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-REQUEST_ABORTED_ERROR">REQUEST_ABORTED_ERROR</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SERVER_ERROR">SERVER_ERROR</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-exerciseCompleteParam">exerciseCompleteParam</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-exerciseCompleteRegex">exerciseCompleteRegex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-feedbackLink">feedbackLink</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-idleTime">idleTime</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-logEventType">logEventType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-logType">logType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-loginMessage">loginMessage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-modes">modes</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-newUrlNotUniqueError">newUrlNotUniqueError</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-oneDay">oneDay</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-tdsRedirectParam">tdsRedirectParam</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-tdsRedirectRegex">tdsRedirectRegex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-tds_all">tds_all</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-tds_blacklist">tds_blacklist</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-tds_exerciseTime">tds_exerciseTime</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-tds_interceptCounter">tds_interceptCounter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-tds_interceptDateList">tds_interceptDateList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-tds_logfile">tds_logfile</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-tds_logs">tds_logs</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-tds_settings">tds_settings</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-trackerAlarmFrequency">trackerAlarmFrequency</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-whitelist">whitelist</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-zeeguLoginLink">zeeguLoginLink</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-zeeguuExLink">zeeguuExLink</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-zeeguuExTracker">zeeguuExTracker</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-zeeguuInfoText">zeeguuInfoText</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">classes</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/Distraction Shield/classes/BlockedSite.js~BlockedSite.html">BlockedSite</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/Distraction Shield/classes/BlockedSiteList.js~BlockedSiteList.html">BlockedSiteList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/Distraction Shield/classes/UserSettings.js~UserSettings.html">UserSettings</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-settingsStatus">settingsStatus</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">dataCollection</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-showDataCollectionModal">showDataCollectionModal</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">examples</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/Distraction Shield/examples/rectangle.js~Rectangle.html">Rectangle</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">modules</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-generateUUID">generateUUID</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createBlockedSiteAndAddToStorage">createBlockedSiteAndAddToStorage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createNewBlockedSite">createNewBlockedSite</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isOpenTab">isOpenTab</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-openTabSingleton">openTabSingleton</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-scrubFromHistory">scrubFromHistory</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-formatDate">formatDate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getToday">getToday</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-msToHHMMSS">msToHHMMSS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-logToFile">logToFile</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setAlarm">setAlarm</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isInRegexList">isInRegexList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-wildcardStrComp">wildcardStrComp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getUrlFromServer">getUrlFromServer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stripOfAll">stripOfAll</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stripOfFileName">stripOfFileName</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stripOfFinalSlash">stripOfFinalSlash</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stripOfPort">stripOfPort</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stripOfScheme">stripOfScheme</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">modules/statistics</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/Distraction Shield/modules/statistics/Tracker.js~Tracker.html">Tracker</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-incrementTodayExerciseTime">incrementTodayExerciseTime</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addToInterceptDateList">addToInterceptDateList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-calcInterceptData">calcInterceptData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-incrementInterceptionCounter">incrementInterceptionCounter</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">modules/storage</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/Distraction Shield/modules/storage/StorageListener.js~StorageListener.html">StorageListener</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-clearLogs">clearLogs</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getAll">getAll</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getAllUnParsed">getAllUnParsed</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getBlacklist">getBlacklist</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getBlacklistPromise">getBlacklistPromise</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getExerciseTimeList">getExerciseTimeList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getInterceptCounter">getInterceptCounter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getInterceptDateList">getInterceptDateList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getLogs">getLogs</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getMode">getMode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getSettings">getSettings</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getSettingsUnParsed">getSettingsUnParsed</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setBlacklist">setBlacklist</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setExerciseTimeList">setExerciseTimeList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setInterceptCounter">setInterceptCounter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setInterceptDateList">setInterceptDateList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setLogFile">setLogFile</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setLogs">setLogs</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setSettings">setSettings</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setSettingsWithCallback">setSettingsWithCallback</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addBlockedSiteToStorage">addBlockedSiteToStorage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-removeBlockedSiteFromStorage">removeBlockedSiteFromStorage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-updateBlockedSiteInStorage">updateBlockedSiteInStorage</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">optionsPage</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadHtmlBlacklist">loadHtmlBlacklist</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadHtmlInterceptCounter">loadHtmlInterceptCounter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadHtmlInterval">loadHtmlInterval</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadHtmlMode">loadHtmlMode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-reloadHtmlBlacklist">reloadHtmlBlacklist</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-connectButton">connectButton</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-initModeSelection">initModeSelection</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setKeyPressFunctions">setKeyPressFunctions</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">optionsPage/classes</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/Distraction Shield/optionsPage/classes/BlacklistTable.js~BlacklistTable.html">BlacklistTable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/Distraction Shield/optionsPage/classes/GreenToRedSlider.js~GreenToRedSlider.html">GreenToRedSlider</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/Distraction Shield/optionsPage/classes/IntervalSlider.js~IntervalSlider.html">IntervalSlider</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/Distraction Shield/optionsPage/classes/TurnOffSlider.js~TurnOffSlider.html">TurnOffSlider</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">statisticsPage/classes</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/Distraction Shield/statisticsPage/classes/BasicTable.js~BasicTable.html">BasicTable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/Distraction Shield/statisticsPage/classes/BlacklistStatsTable.js~BlacklistStatsTable.html">BlacklistStatsTable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/Distraction Shield/statisticsPage/classes/ExerciseTimeTable.js~ExerciseTimeTable.html">ExerciseTimeTable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/Distraction Shield/statisticsPage/classes/InterceptionCounterTable.js~InterceptionCounterTable.html">InterceptionCounterTable</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">Distraction Shield/background.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * The functions that form the functionality of the extension that takes place in the background.
+ * @mixin background
+ */
+
+import BlockedSiteList from &apos;./classes/BlockedSiteList&apos;;
+import * as interception from &apos;./modules/statistics/interception&apos;;
+import * as storage from &apos;./modules/storage/storage&apos;;
+import UserSettings from  &apos;./classes/UserSettings&apos;
+import * as constants from&apos;./constants&apos;;
+import {isInRegexList} from &apos;./modules/stringutil&apos;;
+import {scrubFromHistory} from &apos;./modules/browserutil&apos;
+import StorageListener from &apos;./modules/storage/StorageListener&apos;
+
+/**
+ * Unfortunately webrequestlisteners are not able to process asynchronous functions.
+ * Therefore we need a global variable to keep track of the state of the extension.
+ * @type {boolean}
+ * @memberOf background
+ */
+
+let isInterceptionOn = true;
+
+/**
+ * inits the background by setting the listener to the {@link BlockedSiteList}
+ * @memberOf background
+ */
+export function initBackground(){
+    storage.getBlacklist(function (blockedSiteList) {
+        replaceListener(blockedSiteList);
+    });
+}
+
+/* ---------- ---------- Webrequest functions ----------  ---------- */
+
+/**
+ * This function updates the webrequestlistener by passing a {@link BlockedSiteList} to it. From this list, the active urls
+ * are taken. If the {@link UserSettings}  is on and there are active urls, a new webrequestlistener is added which intercepts
+ * the active urls.
+ * @param blockedSiteList {BlockedSiteList} the new list of BlockedSites
+ * @memberOf background
+ */
+function replaceListener(blockedSiteList) {
+    removeWebRequestListener();
+    storage.getSettings(settings_object =&gt; {
+        let urlList = blockedSiteList.activeUrls;
+        if (settings_object.isInterceptionOn() &amp;&amp; urlList.length &gt; 0)
+            addWebRequestListener(urlList);
+    })
+}
+
+/**
+ * Adds a listener to the onBeforeRequest which blocks all requests to the urls in the urlList
+ * @param urlList {Array} the active urls to be intercepted
+ * @memberOf background
+ */
+function addWebRequestListener(urlList) {
+    chrome.webRequest.onBeforeRequest.addListener(
+        handleInterception
+        , {
+            urls: urlList
+            , types: [&quot;main_frame&quot;]
+        }
+        , [&quot;blocking&quot;]
+    );
+}
+
+/**
+ * Clears the onBeforeRequest listener. Used to turn the extension off &amp; to update the listener with a new listener.
+ * @memberOf background
+ */
+function removeWebRequestListener() {
+    chrome.webRequest.onBeforeRequest.removeListener(handleInterception);
+}
+
+
+/* ---------- ---------- Interception functions ----------  ---------- */
+
+/**
+ * function that does everything that should happen when we decide to intercept the current request.
+ * Incrementing counters and modifying url&apos;s
+ * @param details details about the current webrequest
+ * @memberOf background
+ */
+function intercept(details) {
+    interception.incrementInterceptionCounter(details.url);
+    interception.addToInterceptDateList();
+    let redirectLink = constants.zeeguuExLink;
+    let params = constants.tdsRedirectParam + details.url;
+    return {redirectUrl: redirectLink + params};
+}
+
+/**
+ * Function which fires when we enter a website on the blockedsite list.
+ * If we come from zeeguu and have completed an exercise than we may continue, else we redirect.
+ * @param details the details found by the onWebRequestListener about the current webRequest
+ * @memberOf background
+ */
+function handleInterception(details) {
+    if (isInterceptionOn &amp;&amp; !isInRegexList(constants.whitelist, details.url)) {
+        if (constants.exerciseCompleteRegex.test(details.url)) {
+            scrubFromHistory(constants.exerciseCompleteParam);
+            let url = details.url.replace(constants.exerciseCompleteRegex, &quot;&quot;);
+            turnOffInterception();
+            return {redirectUrl: url};
+        } else {
+            return intercept(details);
+        }
+    }
+}
+
+/**
+ * turns off interception from the background by setting {@link isInterceptionOn} to false and by retrieving
+ * the {@link UserSettings}  from {@link storage} and triggering the turnOffFor function
+ * @memberOf background
+ */
+function turnOffInterception() {
+    isInterceptionOn = false;
+    storage.getSettings(settings_object =&gt; {
+        settings_object.turnOffFor(settings_object.interceptionInterval, true);
+        storage.setSettings(settings_object);
+    })
+}
+
+/* ---------- ---------- Storage Listener ----------  ---------- */
+
+/**
+ * Actual function that is fired upon the change in storage. If the blockedSiteList changes,
+ * we update our listener. If the settings change we encorperate this in the background&apos;s behaviour.
+ * @param changes data passed by the storage.onChanged event
+ * @method handleStorageChange
+ * @memberOf background
+ */
+new StorageListener((changes) =&gt; {
+    if (constants.tds_blacklist in changes) {
+        let newBlockedSiteList = BlockedSiteList.deserializeBlockedSiteList(changes[constants.tds_blacklist].newValue);
+        replaceListener(newBlockedSiteList);
+    }
+    if (constants.tds_settings in changes) {
+        let newSettings = UserSettings.deserializeSettings(changes[constants.tds_settings].newValue);
+        let oldSettings = UserSettings.deserializeSettings(changes[constants.tds_settings].oldValue);
+        isInterceptionOn = newSettings.isInterceptionOn();
+        if (!newSettings.isInterceptionOn())
+            newSettings.reInitTimer();
+        else if (!oldSettings || !oldSettings.isInterceptionOn())
+            storage.getBlacklist(blockedSiteList =&gt; replaceListener(blockedSiteList));
+    }
+});
+
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.5.2)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
