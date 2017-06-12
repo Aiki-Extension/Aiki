@@ -6,13 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width initial-scale=1">
 
-  <title>The Distraction Shield</title>
+  <title>Building</title>
   <meta name="description" content="Welcome to The Distraction Shield
 ">
   <meta name="google-translate-customization" content="b9870a0c7376df54-aa35852016e6a5cc-ga0a0d80f6c171f17-e"></meta>
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://localhost:4000/">
+  <link rel="canonical" href="http://localhost:4000/building/">
   <link href="http://localhost:4000/favicon.ico" rel="icon">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="alternate" type="application/atom+xml" title="The Distraction Shield" href="http://localhost:4000/atom.xml" />
@@ -126,13 +126,42 @@
   <div class="col-md-2"></div>
     <div class="col-md-8">
       <div class="spaced-block">
-      <p>The Distraction Shield is a browser extension designed to take advantage of our human nature. 
-It is a very common scenario to find ourselves browsing sites such as Facebook or Reddit while we are supposed to be working. 
-The Distraction Shield can help you to do something useful and enriching; a distraction ‘Aikido’.</p>
+      <h1 id="building-the-project">Building the project</h1>
+<p>In order to build the project you need to complete the following steps.</p>
 
-<p>The main functionality of The Distraction Shield extension is to detect when the user enters a website that they consider a distraction. 
-It then presents a language exercise instead. Once the user has completed the exercise, they will be free to continue onto the original site. 
-The user can choose for which sites the redirection should happen, by adding domain names to a blacklist.</p>
+<h2 id="step-1">Step 1</h2>
+
+<p>Install node.js (https://nodejs.org)</p>
+
+<h2 id="step-2">Step 2</h2>
+<p>Install bower.js (https://bower.io)</p>
+
+<h2 id="step-3">Step 3</h2>
+<p>Install packages:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>npm install
+bower install
+</code></pre>
+</div>
+
+<h2 id="step-4">Step 4</h2>
+<p>Build the project!</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>npm run build
+</code></pre>
+</div>
+
+<p>To continuously rebuild upon file change:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>npm start
+</code></pre>
+</div>
+
+<p>To run all tests:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>npm test
+</code></pre>
+</div>
 
       </div>
     </div>

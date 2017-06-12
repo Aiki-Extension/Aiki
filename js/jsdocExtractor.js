@@ -20,7 +20,8 @@ function requestHTML(link, elem){
     xhr.onload = function(){
         var xml = (/<article.*?>(?:[\t\n\r]*)([\w\W]*?)(?:[\t\n\r]*)<\/article>/m).exec(xhr.responseText)[0];
         var hrefRegex = /<a href.*?>(?:[\t\n\r]*)([\w\W]*?)(?:[\t\n\r]*)<\/a>/mg;
-        var x = xml.match(hrefRegex).length;
+        var matches = xml.match(hrefRegex)
+        var x = (matches ? matches.length : 0);
         while (x>0) {
             var result = hrefRegex.exec(xml);
             xml = result.input.replace(result[0], result[1]);

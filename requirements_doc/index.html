@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+
+  <title>Requirements document</title>
+  <meta name="description" content="Welcome to The Distraction Shield
+">
+  <meta name="google-translate-customization" content="b9870a0c7376df54-aa35852016e6a5cc-ga0a0d80f6c171f17-e"></meta>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/requirements_doc/">
+  <link href="http://localhost:4000/favicon.ico" rel="icon">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="alternate" type="application/atom+xml" title="The Distraction Shield" href="http://localhost:4000/atom.xml" />
+</head>
+
+
+  <body>
+         <div class="col-md-12 navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">The Distraction Shield</a>
+      </div>
+      <div class="navbar-collapse collapse navbar-inverse-collapse">
+        <ul class="nav navbar-nav">
+          
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li><a href="/intro/">Introduction</a></li>
+            
+          
+            
+              <li><a href="/building/">Building</a></li>
+            
+          
+            
+              <li><a href="/documentation/">Documentation</a></li>
+            
+          
+            
+              <li><a href="/architecture_doc/">Architecture document</a></li>
+            
+          
+            
+              <li><a href="/requirements_doc/">Requirements document</a></li>
+            
+          
+
+<!--           <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+            
+              
+                <li><a href="/architecture_doc/" style="text-transform : uppercase;">Architecture document</a></li>
+              
+            
+              
+                <li><a href="/building/" style="text-transform : uppercase;">Building</a></li>
+              
+            
+              
+                <li><a href="/documentation/" style="text-transform : uppercase;">Documentation</a></li>
+              
+            
+              
+            
+              
+                <li><a href="/intro/" style="text-transform : uppercase;">Introduction</a></li>
+              
+            
+              
+            
+              
+            
+              
+                <li><a href="/requirements_doc/" style="text-transform : uppercase;">Requirements document</a></li>
+              
+            
+              
+            
+              
+            
+            </ul>
+          </li>
+ -->        </ul>
+
+        <ul class="nav navbar-nav navbar-right left-syms">
+          <li><a href="http://github.com/RUGSoftEng/2017-The-Distraction-Shield" target="_blank"><i class="fa fa-github"></i> <span>Github</span></a></li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="col-md-12 blog-theme-class">
+      <!-- Top Blog Header -->
+      <div class="row jumb-bot">
+        <div class="col-md-2"></div>
+        <div class="jumbotron jumb-bot-jumbu col-md-8">
+          <h1>The Distraction Shield</h1>
+          <p>Welcome to The Distraction Shield
+</p>
+        </div>
+          <div class="col-md-2"></div>
+      </div>
+    </div>
+     <div class="col-md-12">
+       <div class="row">
+  <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="spaced-block">
+      <h1 id="requirements-document">Requirements Document</h1>
+
+<h4 id="the-distraction-shield">The Distraction Shield</h4>
+
+<p><img src="../images/aikido.png" alt="image alt text" /></p>
+
+<ul>
+  <li>
+    <p>version 2.1.0</p>
+  </li>
+  <li>
+    <p>Team: Team Distraction Shield</p>
+  </li>
+  <li>
+    <p>Team Contact: <a href="mailto:distractionshield.devteam@gmail.com">distractionshield.devteam@gmail.com</a></p>
+  </li>
+  <li>
+    <p>The Team:</p>
+    <ul>
+      <li>Alex Daffurn-Lewis</li>
+      <li>Pieter Dekker</li>
+      <li>Edser Apperloo</li>
+      <li>Elena Ionescu</li>
+      <li>Erik Voogd</li>
+      <li>Mark Timmerman</li>
+      <li>Rowan van Beckhoven</li>
+      <li>Jeroen Overschie</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+
+<ul>
+  <li><a href="#requirements-document">Requirements Document</a>
+    <ul>
+      <li><a href="#the-distraction-shield">The Distraction Shield</a></li>
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#general-information">General Information</a></li>
+      <li><a href="#target-users">Target Users</a></li>
+      <li><a href="#major-features">Major Features</a>
+        <ul>
+          <li><a href="#critical">Critical</a>
+            <ul>
+              <li><a href="#general-requirements">General Requirements:</a></li>
+              <li><a href="#system-requirements">System Requirements</a></li>
+            </ul>
+          </li>
+          <li><a href="#important">Important</a>
+            <ul>
+              <li><a href="#general-requirements-1">General Requirements:</a></li>
+              <li><a href="#interface-requirements">Interface Requirements:</a></li>
+              <li><a href="#system-requirements-1">System Requirements:</a></li>
+            </ul>
+          </li>
+          <li><a href="#useful">Useful</a>
+            <ul>
+              <li><a href="#interface-requirements-1">Interface Requirements:</a></li>
+              <li><a href="#system-requirements-2">System Requirements:</a></li>
+            </ul>
+          </li>
+          <li><a href="#excluded-features">Excluded Features</a></li>
+        </ul>
+      </li>
+      <li><a href="#non-functional-requirements">Non-functional Requirements</a>
+        <ul>
+          <li><a href="#maintainability">Maintainability</a></li>
+          <li><a href="#usablility">Usablility</a></li>
+        </ul>
+      </li>
+      <li><a href="#deployment-of-the-application">Deployment of the application</a></li>
+      <li><a href="#weekly-progress">Weekly progress</a></li>
+      <li><a href="#change-log">Change Log</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>This document is intended to guide the development of The Distraction Shield. It contains all of the features that are or will be implemented, their importance to the project, and why they are useful.</p>
+
+<h2 id="general-information">General Information</h2>
+
+<p>The Distraction Shield is a browser extension designed to take advantage of our human nature. It is a very common scenario to find ourselves browsing sites such as Facebook or Reddit while we are supposed to be working. The Distraction Shield can help you to do something useful and enriching; a distraction ‘Aikido’ (NOTE:  Aikido is a modern Japanese martial art that focuses on redirecting the momentum of an opponent’s attack.).</p>
+
+<p>The main functionality of The Distraction Shield extension is to detect when the user enters a website that they consider a distraction. It then presents a language learning exercise instead. Once the user has completed the exercise, they will be free to continue onto the original site. The user can choose for which sites the redirection should happen, by adding domain names to a blacklist. With the success of language platforms like <a href="https://www.duolingo.com/">Duolingo</a>, this simple exercise-based way of learning languages is merged into another popular area: distraction blocking apps such as <a href="https://getcoldturkey.com/">ColdTurkey</a>.</p>
+
+<h2 id="target-users">Target Users</h2>
+
+<p>This project is aimed at a large variety of users. These users can be of nearly all ages and backgrounds There are two main traits that these people have in common though: <strong>they are people that get easily distracted</strong> and <strong>people that would like to learn a new language.</strong> Everyone gets distracted or falls prey to procrastination every now and then. Furthermore there are lots of people that have the desire to learn new languages. One group of people one might think of are foreign students, or in general people living abroad. They most likely use computers on a daily basis and might want to pick up the local language. This extension fits the needs of these people perfectly.</p>
+
+<h2 id="major-features">Major Features</h2>
+
+<p>The main features of the extension are presented in this section. Distinction is made between critical, important, useful and excluded features.</p>
+
+<h3 id="critical"><strong>Critical</strong></h3>
+
+<h4 id="general-requirements">General Requirements:</h4>
+
+<ul>
+  <li>The user can choose to restrict him/herself of visiting a website by adding a domain or specific url to their ‘blacklist’ or ‘BlockedSiteList’. This ‘blacklist’ contains all the sites for which, when the user attempts to enter them, the user is intercepted and instead redirected to a language learning exercise.</li>
+</ul>
+
+<h4 id="system-requirements">System Requirements</h4>
+
+<ul>
+  <li>The extension is developed for Chrome.</li>
+</ul>
+
+<h3 id="important"><strong>Important</strong></h3>
+
+<h4 id="general-requirements-1">General Requirements:</h4>
+
+<ul>
+  <li>After installing the extension, the user will be presented with a tour of the extension’s pages: tooltip, options and statistics. How to use these pages and the functionality in general.</li>
+</ul>
+
+<h4 id="interface-requirements">Interface Requirements:</h4>
+
+<ul>
+  <li>
+    <p>There is an options page on which…</p>
+
+    <ul>
+      <li>
+        <p>…the user can choose between modes:</p>
+
+        <ul>
+          <li>
+            <p>The pro mode:</p>
+
+            <ul>
+              <li>The user is always intercepted (NOTE:  When attempting to navigate to a blacklisted page and the interception is turned on.). When intercepted, the user has to complete the exercise to be able to go to the website they originally intended to visit.</li>
+            </ul>
+          </li>
+          <li>
+            <p>The lazy mode:</p>
+
+            <ul>
+              <li>The user is always intercepted (NOTE:  When attempting to navigate to a blacklisted page and the interception is turned on.). When intercepted, the user can skip the exercise with a link and go to the website they originally intended to visit.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>…the user can specify the time in minutes before being intercepted again.</p>
+      </li>
+      <li>
+        <p>…the user can see their blacklist, and for each individual website on the list…</p>
+
+        <ul>
+          <li>
+            <p>…the favicon of the corresponding page is shown.</p>
+          </li>
+          <li>
+            <p>…the tab title of the website is shown.</p>
+          </li>
+          <li>
+            <p>…a checkbox which enables/disables interception of this blocked website is shown</p>
+          </li>
+          <li>
+            <p>…a delete button through which the website can be removed from the list.</p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>…the user can add a website to the blacklist.</p>
+      </li>
+      <li>
+        <p>…the user can en/disable interception of entering a blacklisted site for a customizable period of time.</p>
+      </li>
+      <li>
+        <p>…the tour can be taken again at any time.</p>
+      </li>
+      <li>
+        <p>…the user can navigate to a feedback form on which feedback can be given to the development team.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>There is a statistics page on which…</p>
+
+    <ul>
+      <li>
+        <p>…the user can see how many times they have been intercepted in the last day, week, month, and in total.</p>
+      </li>
+      <li>
+        <p>…the user can see the blacklist and for each website on the list…</p>
+
+        <ul>
+          <li>
+            <p>…the favicon.</p>
+          </li>
+          <li>
+            <p>…the website’s tab title.</p>
+          </li>
+          <li>
+            <p>…how many times their navigation to that site was intercepted.</p>
+          </li>
+          <li>
+            <p>…how much time was spent on these sites cumulative.</p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>…the user can see on what day they spent how much time on exercises</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>There is a tooltip page on which…</p>
+
+    <ul>
+      <li>
+        <p>…there is a button that can…</p>
+
+        <ul>
+          <li>
+            <p>…add the current page to the blacklisted, or if the current page is already on the list;</p>
+          </li>
+          <li>
+            <p>…disable/enable interception of navigation to the current page</p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>…there is a button that opens the statistics page, unless that page is open already, then it switches to that tab.</p>
+      </li>
+      <li>
+        <p>…there is a button that opens the options page, unless that page is open already, then it switches to that tab.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Create a minimal website that presents the extension</p>
+
+    <ul>
+      <li>The site should be developed using the GitHub pages</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="system-requirements-1">System Requirements:</h4>
+
+<ul>
+  <li>
+    <p>Integrate extension with a third party that provides a platform where the user can make better users can make better use of their time.</p>
+
+    <ul>
+      <li>
+        <p>Zeeguu platform provides language learning exercises for the users</p>
+      </li>
+      <li>
+        <p>The extension should be able to extend to other similar platforms with different learning topics ( ex: programming, hobby, etc)</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="useful"><strong>Useful</strong></h3>
+
+<h4 id="interface-requirements-1">Interface Requirements:</h4>
+
+<ul>
+  <li>
+    <p>Notifications about user’s behaviour.</p>
+
+    <ul>
+      <li>
+        <p>The application should track the user behaviour :</p>
+
+        <ul>
+          <li>
+            <p>How many times the user skips the exercise when in lazy mode</p>
+          </li>
+          <li>
+            <p>Which mode is most used</p>
+          </li>
+          <li>
+            <p>After how much time the user deactivates the extension</p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>The users should be notified when they skip too many exercises (NOTE:  Became out of scope before final Iteration of this development team).</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="system-requirements-2">System Requirements:</h4>
+
+<ul>
+  <li>The extension is ported to work on Firefox.</li>
+</ul>
+
+<h3 id="excluded-features"><strong>Excluded Features</strong></h3>
+
+<ul>
+  <li>Extension will not be ported to work in Microsoft Internet Explorer.<a href="https://www.netmarketshare.com/browser-market-share.aspx?qprid=2&amp;qpcustomd=0"> The percentage of IE users is less than 15%.</a> (NOTE:  https://www.netmarketshare.com/browser-market-share.aspx?qprid=2&amp;qpcustomd=0) It is very difficult and time consuming to port the extension to IE. Therefore the decision was made not to do this.</li>
+</ul>
+
+<h2 id="non-functional-requirements">Non-functional Requirements</h2>
+
+<h4 id="maintainability">Maintainability</h4>
+
+<ul>
+  <li>
+    <p>Code is of high quality: modularity, maintainability and brevity are of utmost importance in general.</p>
+  </li>
+  <li>
+    <p>Use ECMAScript 6  to enable better management of modules, dependencies and classes in specific.</p>
+  </li>
+  <li>
+    <p>Code should be nicely documented, such that a new team can easily take over with this unknown codebase</p>
+  </li>
+</ul>
+
+<h4 id="usablility">Usablility</h4>
+
+<ul>
+  <li>
+    <p>The extension should not be invasive</p>
+
+    <ul>
+      <li>
+        <p>The user has the option to modify the extension up to such a level where the user is intercepted often enough to make it not bug the user, but still be helpful.</p>
+
+        <ul>
+          <li>This in general leads to the need for a highly customizable user experience in which he/she can pick every setting themselves</li>
+        </ul>
+      </li>
+      <li>
+        <p>The user has the option of putting the extension in Lazy mode or to turn off the extension for a certain amount of time.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>User can easily modify how the extension works.</p>
+
+    <ul>
+      <li>In the options page, the users can customize the blacklist, the time they have between intercepts, the turn off time.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Users should not be intercepted when they want to use sites from the blacklist with a different goal than to browse them, specific example: the “Log in with Facebook” option that is provided by other applications/ sites.</p>
+  </li>
+</ul>
+
+<h2 id="deployment-of-the-application">Deployment of the application</h2>
+
+<ul>
+  <li>
+    <p>The extension is ready for deployment under the Chrome Extensions store as a beta-run</p>
+  </li>
+  <li>
+    <p>The users have the possibility of giving feedback</p>
+
+    <ul>
+      <li>A feedback form is available by following the link on the options page</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="weekly-progress">Weekly progress</h2>
+
+<p>Here, the requirements of the customer are shown chronologically.</p>
+
+<ol>
+  <li>
+    <p>First meeting for SE2 - 24.04.2017:</p>
+
+    <ul>
+      <li>
+        <p><strong>Remove login</strong>: 
+  From the tooltip menu, we had to remove the login button 
+  We implemented this by moving the login functionality to the options page until the Zeeguu login functionality with cookies will be deployed.</p>
+      </li>
+      <li>
+        <p><strong>Time tracking per distraction/blocked site</strong>: 
+  Before, the amount of interceptions for each blocked site was being tracked. However, tracking time wasted on each distraction is also being tracked now.</p>
+      </li>
+      <li>
+        <p><strong>Disable blocking this page button</strong>: 
+  in the tooltip, there is a ‘Save current page button’. When the user is on  a page that is already in the blacklist, the button will now be ‘Disable blocking this page’ and will disable the current page. The enabling back the page can be done from the same button. This functionality is equivalent of checking / unchecking the website from the list in the options page.</p>
+      </li>
+      <li>
+        <p><strong>Change slider and input minutes</strong>: 
+  in the options page, it is now possible to input a certain amount of time instead of just using the slider. Also, the color of the slider is changed.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Second meeting for SE2 - 04.05.2017</p>
+
+    <ul>
+      <li>
+        <p><strong>Polish application</strong>: 
+  implement visual changes as provided in the feedback</p>
+      </li>
+      <li>
+        <p><strong>Remove login</strong>: 
+  remove the login module of the Distraction Shield and use only the login provided by the Zeeguu application.</p>
+      </li>
+      <li>
+        <p><strong>Add feedback form</strong>: 
+  create a way in which the users can provide feedback to the extension</p>
+      </li>
+      <li>
+        <p><strong>Clean code and modularize application</strong>: 
+  create a clean version of the extension using ECMA Script 6</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Third meeting for SE2 - 24.05.2017</p>
+
+    <ul>
+      <li>
+        <p><strong>ES6</strong>: 
+  Finish our implementation of ECMA Script 6</p>
+      </li>
+      <li>
+        <p><strong>Login Injection</strong>: 
+  Inject a personalized message into the Zeeguu login page so after first redirect to login, the user knows that it is us that took them there</p>
+      </li>
+      <li>
+        <p><strong>Tracking</strong>: 
+  Implement first iteration of user tracking. Collect user data (Options changes, skips, time spent on exercises and blacklisted websites) so that it can be used for analysis</p>
+      </li>
+      <li>
+        <p><strong>Terms and Conditions</strong>: 
+  Add terms and conditions for the user to accept upon installation</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Fourth online meeting for SE2 - 06.06.2017</p>
+    <ul>
+      <li>
+        <p><strong>Set up a minimal website</strong>: using gh-pages for introduction purposes. This site can be used both for your final presentation as well as serve as an introduction for potential users.</p>
+      </li>
+      <li>
+        <p>Look into the <strong>prerequisites for publishing the extension</strong> on the Chrome store.</p>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="change-log">Change Log</h2>
+
+<table class="mbtablestyle">
+  <thead>
+    <tr>
+      <th style="text-align: left">Who</th>
+      <th style="text-align: left">When</th>
+      <th style="text-align: left">Which section</th>
+      <th style="text-align: left">What</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Alex+Pieter</td>
+      <td style="text-align: left">22-02-17</td>
+      <td style="text-align: left">All</td>
+      <td style="text-align: left">Created Doc</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Pieter</td>
+      <td style="text-align: left">25-02-17</td>
+      <td style="text-align: left">All</td>
+      <td style="text-align: left">Processed meeting notes into Requirements Doc (not complete)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Edser, Erik + Elena</td>
+      <td style="text-align: left">25-02-17</td>
+      <td style="text-align: left">All</td>
+      <td style="text-align: left">Editing Doc</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Alex</td>
+      <td style="text-align: left">07-03-17</td>
+      <td style="text-align: left">All</td>
+      <td style="text-align: left">Updating Doc as per feedback</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Alex</td>
+      <td style="text-align: left">23-03-17</td>
+      <td style="text-align: left">All</td>
+      <td style="text-align: left">Implementing feedback</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Elena</td>
+      <td style="text-align: left">10-04-17</td>
+      <td style="text-align: left">All</td>
+      <td style="text-align: left">Implementing feedback</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Erik, Mark</td>
+      <td style="text-align: left">01-05-17</td>
+      <td style="text-align: left">All</td>
+      <td style="text-align: left">Implementing feedback</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Pieter</td>
+      <td style="text-align: left">15-05-17</td>
+      <td style="text-align: left">Introduction, Title Page</td>
+      <td style="text-align: left">Moved the logo to the Title Page</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Pieter</td>
+      <td style="text-align: left">15-05-17</td>
+      <td style="text-align: left">Major Features</td>
+      <td style="text-align: left">Removed floating pieces of text, revised requirements to not refer to current implementation</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Pieter</td>
+      <td style="text-align: left">15-05-17</td>
+      <td style="text-align: left">Major Features</td>
+      <td style="text-align: left">User requirements are general requirements, moved all the requirements that are out of place to appropriate sections, restructured in general</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Elena</td>
+      <td style="text-align: left">15-05-17</td>
+      <td style="text-align: left">Weekly progress</td>
+      <td style="text-align: left">Added weekly progress</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Alex</td>
+      <td style="text-align: left">27-05-17</td>
+      <td style="text-align: left">Weekly progress</td>
+      <td style="text-align: left">Added weekly progress</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Edser</td>
+      <td style="text-align: left">10-06-17</td>
+      <td style="text-align: left">Target Users</td>
+      <td style="text-align: left">Rewrote the message</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Edser</td>
+      <td style="text-align: left">10-06-17</td>
+      <td style="text-align: left">Layout</td>
+      <td style="text-align: left">Removed random whitespace</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Edser</td>
+      <td style="text-align: left">10-06-17</td>
+      <td style="text-align: left">All</td>
+      <td style="text-align: left">Implement feedback of past iterations</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Elena</td>
+      <td style="text-align: left">12-06-17</td>
+      <td style="text-align: left">Weekly progress</td>
+      <td style="text-align: left">Updated the weekly progress</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    </div>
+  <div class="col-md-2"></div>
+</div>
+
+     </div>
+
+    <div class="col-md-12">
+    <!-- Footer -->
+            <div class="row footer">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <h4>Github Repositories</h4>
+                      <ul>
+                      
+                        <li>
+                          <a href="https://github.com/RUGSoftEng/2017-The-Distraction-Shield">
+                            <span class="username">RUGSoftEng/2017-The-Distraction-Shield</span>
+                          </a>
+                        </li>
+                        
+                      </ul>
+                    </div>
+                    <div class="col-md-3">
+                      <h4>Information</h4>
+                      <ul>
+                        <li>
+                          <a href="https://docs.google.com/forms/d/e/1FAIpQLScHTpTaGD19HJd4d7k98FV_20-NwRV0dp9xNMWza7_1KsiGag/viewform">
+                            <span class="feedback">Feedback</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/privacy/">
+                            <span class="privacy">Privacy Policy</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+          <!-- End Footer -->
+
+    </div>
+    <div class="col-md-12">
+    			<div class="row end_footer">
+              <div class="col-md-1"></div>
+              <div class="col-md-6">
+                <p>Copyright &copy; The Distraction Shield 2017</p>
+              </div>
+              <div class="col-md-4"></div>
+              <div class="col-md-1"></div>
+            </div>
+
+    </div>
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/prettify.js"></script>
+    <script>
+      [].forEach.call(document.getElementsByTagName("pre"), function(el) {
+        el.classList.add("prettyprint");
+      });
+
+      prettyPrint();
+    </script>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+
+    <style>
+      pre.prettyprint {
+
+        font-size: 13px;
+        font-family: "Open Sans";
+        padding: 8px 12px;
+        border: 1px solid #bbb;
+        border-radius: 4px;
+      }
+    </style>
+
+  </body>
+
+</html>

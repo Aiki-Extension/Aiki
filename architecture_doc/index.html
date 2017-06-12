@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+
+  <title>Architecture document</title>
+  <meta name="description" content="Welcome to The Distraction Shield
+">
+  <meta name="google-translate-customization" content="b9870a0c7376df54-aa35852016e6a5cc-ga0a0d80f6c171f17-e"></meta>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/architecture_doc/">
+  <link href="http://localhost:4000/favicon.ico" rel="icon">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="alternate" type="application/atom+xml" title="The Distraction Shield" href="http://localhost:4000/atom.xml" />
+</head>
+
+
+  <body>
+         <div class="col-md-12 navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">The Distraction Shield</a>
+      </div>
+      <div class="navbar-collapse collapse navbar-inverse-collapse">
+        <ul class="nav navbar-nav">
+          
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li><a href="/intro/">Introduction</a></li>
+            
+          
+            
+              <li><a href="/building/">Building</a></li>
+            
+          
+            
+              <li><a href="/documentation/">Documentation</a></li>
+            
+          
+            
+              <li><a href="/architecture_doc/">Architecture document</a></li>
+            
+          
+            
+              <li><a href="/requirements_doc/">Requirements document</a></li>
+            
+          
+
+<!--           <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+            
+              
+                <li><a href="/architecture_doc/" style="text-transform : uppercase;">Architecture document</a></li>
+              
+            
+              
+                <li><a href="/building/" style="text-transform : uppercase;">Building</a></li>
+              
+            
+              
+                <li><a href="/documentation/" style="text-transform : uppercase;">Documentation</a></li>
+              
+            
+              
+            
+              
+                <li><a href="/intro/" style="text-transform : uppercase;">Introduction</a></li>
+              
+            
+              
+            
+              
+            
+              
+                <li><a href="/requirements_doc/" style="text-transform : uppercase;">Requirements document</a></li>
+              
+            
+              
+            
+              
+            
+            </ul>
+          </li>
+ -->        </ul>
+
+        <ul class="nav navbar-nav navbar-right left-syms">
+          <li><a href="http://github.com/RUGSoftEng/2017-The-Distraction-Shield" target="_blank"><i class="fa fa-github"></i> <span>Github</span></a></li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="col-md-12 blog-theme-class">
+      <!-- Top Blog Header -->
+      <div class="row jumb-bot">
+        <div class="col-md-2"></div>
+        <div class="jumbotron jumb-bot-jumbu col-md-8">
+          <h1>The Distraction Shield</h1>
+          <p>Welcome to The Distraction Shield
+</p>
+        </div>
+          <div class="col-md-2"></div>
+      </div>
+    </div>
+     <div class="col-md-12">
+       <div class="row">
+  <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="spaced-block">
+      <h1 id="architecture-document">Architecture Document</h1>
+
+<h4 id="the-distraction-shield">The Distraction Shield</h4>
+
+<p><img src="../images/aikido.png" alt="image alt text" /></p>
+
+<ul>
+  <li>
+    <p>version 2.1.0</p>
+  </li>
+  <li>
+    <p>Team: Team Distraction Shield</p>
+  </li>
+  <li>
+    <p>Team Contact: <a href="mailto:distractionshield.devteam@gmail.com">distractionshield.devteam@gmail.com</a></p>
+  </li>
+  <li>
+    <p>The Team:</p>
+    <ul>
+      <li>Alex Daffurn-Lewis</li>
+      <li>Pieter Dekker</li>
+      <li>Edser Apperloo</li>
+      <li>Elena Ionescu</li>
+      <li>Erik Voogd</li>
+      <li>Mark Timmerman</li>
+      <li>Rowan van Beckhoven</li>
+      <li>Jeroen Overschie</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+
+<ul>
+  <li><a href="#architecture-document">Architecture Document</a>
+    <ul>
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#architectural-overview">Architectural overview</a>
+        <ul>
+          <li><a href="#the-extension-platform">The extension platform</a></li>
+          <li><a href="#the-exercise-platform">The exercise platform</a></li>
+          <li><a href="#visual-design">Visual design</a>
+            <ul>
+              <li><a href="#the-tooltip-page">The tooltip page</a></li>
+              <li><a href="#the-options-page">The options page</a></li>
+              <li><a href="#the-statistics-page">The statistics page</a></li>
+              <li><a href="#the-feedback-form">The feedback form</a></li>
+              <li><a href="#the-interception">The interception</a></li>
+            </ul>
+          </li>
+          <li><a href="#control">Control</a>
+            <ul>
+              <li><a href="#the-background-page">The background page</a></li>
+              <li><a href="#content-scripts">Content Scripts</a></li>
+            </ul>
+          </li>
+          <li><a href="#usage-flow">Usage flow</a></li>
+          <li><a href="#storage">Storage</a></li>
+        </ul>
+      </li>
+      <li><a href="#first-utilization">First utilization</a>
+        <ul>
+          <li><a href="#log-in">Log in</a></li>
+        </ul>
+      </li>
+      <li><a href="#technology-stack">Technology Stack</a></li>
+      <li><a href="#team-organization">Team Organization</a></li>
+      <li><a href="#appendix">Appendix</a>
+        <ul>
+          <li><a href="#module-dependencies">Module dependencies</a>
+            <ul>
+              <li><a href="#options-page">Options page</a></li>
+              <li><a href="#statistics-page">Statistics page</a></li>
+              <li><a href="#tooltip-page">Tooltip page</a></li>
+              <li><a href="#background">Background</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#change-log">Change Log</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="introduction">Introduction</h2>
+
+<p><strong>The Distraction Shield</strong> is a browser extension designed to help people make better use of their time and learn a new language. It takes advantage of our human nature that we are easily distracted by social media and other entertainment sites and turns the normal procrastination time into a productive language learning experience.</p>
+
+<p>The core functionality of The Distraction Shield is to detect when the user visits a site that is he added on a blacklist, and will open a language exercise instead of the site. Once the user has completed the exercise, they will be free to continue onto the original site.</p>
+
+<p>The learning experience can be personalized, among other things, by having an account on the Zeeguu platform,  maintaining a blacklist of websites that will redirect to the learning platform and by customizing the time interval between two redirects.</p>
+
+<h2 id="architectural-overview">Architectural overview</h2>
+
+<p>In order to provide an overview of the Distraction Shield extension, in the appendix of the attached file there is a map of the modules that the application is using and their dependencies.</p>
+
+<p>Each part of the map is explained with regards to the its dependencies.</p>
+
+<p>The image can be viewed at a different scale by following this link :</p>
+
+<p><a href="https://www.draw.io/?lightbox=1&amp;highlight=0000ff&amp;edit=_blank&amp;layers=1&amp;nav=1#G0B-uaz9aO7hIDa3AwUDF2aHdYWnM">Diagram of the module dependencies </a></p>
+
+<p><a href="https://drive.google.com/file/d/0B-uaz9aO7hIDa3AwUDF2aHdYWnM/view?usp=sharing">https://drive.google.com/file/d/0B-uaz9aO7hIDa3AwUDF2aHdYWnM/view?usp=sharing</a></p>
+
+<p>A diagram that shows the division of the files in the application and its is presented below :</p>
+
+<p><img src="image_1.png" alt="image alt text" /></p>
+
+<h3 id="the-extension-platform">The extension platform</h3>
+
+<p>The extension is currently developed only for the Chrome web browser. This means that certain parts of the functionality are dependent on what chrome expects from an extension, and the api that is available to extensions in Chrome.</p>
+
+<p>A Chrome-extension starts with a <strong>manifest</strong> file, where the main structure of the of the extension is defined. Also defined in the manifest are the main properties of the extension and the extensions meta-data such as name, version number, etc.</p>
+
+<p>In the manifest, one or more <strong>background</strong> <strong>scripts or pages</strong> are defined. Everything defined as <strong>background</strong> is run on the <strong>background page</strong>, invisible to the user and having unlimited access to the chrome extension api. The limitation of the <strong>background page</strong> is that it has no access to the webpages the browser displays.</p>
+
+<p>At this point <strong>content</strong> <strong>scripts</strong> come into play. <strong>Content scripts</strong> are scripts that are injected into web pages and therefore have the ability to interact with the pages the user of the extension visits and extending the reach of the extension to those pages.</p>
+
+<p>It should be noted that, although content scripts are able to interact with the HTML part of web pages, they do not share resources with the javascript that is run on those pages. This means that interaction with those scripts functions and variables is not possible, and addition of functionality to the pages own functionality needs to be done by programmatically loading scripts in the page. Those scripts, although inserted by a <strong>content script</strong>, run like normal scripts and have access to variables and functions from other scripts on the page.</p>
+
+<p>All this dictates the main structure of the extension’s code.</p>
+
+<h3 id="the-exercise-platform">The exercise platform</h3>
+
+<p>The exercises used to help the user spend their time on learning a new language come from the Zeeguu research project ( <a href="https://zeeguu.unibe.ch">https://zeeguu.unibe.ch</a> ). Zeeguu is a language learning platform that provides exercises based on your previous reading on different articles written in a foreign language. Currently a simple sample page with one exercise has been set up for the extension to use.</p>
+
+<h3 id="visual-design">Visual design</h3>
+
+<h4 id="the-tooltip-page"><strong>The tooltip page</strong></h4>
+
+<p>In order to make it easy for the user to access the options and statistics page, we made a tooltip page that is accessible by clicking on the extension’s icon.</p>
+
+<p>Here the user can also add the current page into the blacklist, in order for him/her not to have to write the site in the options page.</p>
+
+<h4 id="the-options-page"><strong>The options page</strong></h4>
+
+<p>In this page the user can customize his/her learning experience by choosing : the sites that should be in the blacklist, the mode, the time interval for intercepts or the option to turn off the extension for a certain time.</p>
+
+<p><img src="image_2.png" alt="image alt text" /></p>
+
+<p>The user can <strong>define which sites</strong> have to be intercepted by the extension by adding or removing sites from a list (the blacklist). The sites can be temporarily disabled by unticking the box near the name of the site.</p>
+
+<p>The user can choose the <strong>mode</strong>, Lazy or Pro.</p>
+
+<p>The user can set <strong>a time interval between intercepts</strong>, which means that after finishing an exercise ( or after pressing the ‘Skip’ button from the Lazy mode) you can enter on sites that are on the blacklist without being intercepted for that certain amount of time.</p>
+
+<p>Also, the user can set <strong>the time between redirections</strong>, which means that the extension will not intercept your browsing for that given time.</p>
+
+<h4 id="the-statistics-page">The statistics page</h4>
+
+<p>The user can access a dashboard with <strong>statistics</strong> based on: the number of times he/she was intercepted from a certain site and how much time was spent on this site. Also, the amount of time spent on exercises is being tracked.<img src="image_3.png" alt="image alt text" /></p>
+
+<h4 id="the-feedback-form">The feedback form</h4>
+
+<p>In order to enable users to provide feedback for the extensions, a form can be accessed from the options page.</p>
+
+<p>In this form users can answer questions related to the :</p>
+
+<ol>
+  <li>
+    <p>Design of the application</p>
+  </li>
+  <li>
+    <p>How easy it is to use the application</p>
+  </li>
+  <li>
+    <p>New features that they would like</p>
+  </li>
+  <li>
+    <p>How they feel interacting with the application</p>
+  </li>
+</ol>
+
+<p>The form is implemented as a Google form, and can be accessed  through the following link : <a href="https://goo.gl/forms/e1u8uxBeDDezVfPG2">https://goo.gl/forms/e1u8uxBeDDezVfPG</a></p>
+
+<h4 id="the-interception"><strong>The interception</strong></h4>
+
+<p>When the user enters a site that is on the list of blocked sites, he/she is redirected to a language exercise. The page where the user is redirected looks like the following image. It should be noticed that in the lower part of the page, the user is presented with information about the reason of redirection and with the option button to Skip. The ‘Skip’ functionality is explained below.</p>
+
+<p><img src="image_4.png" alt="image alt text" /></p>
+
+<p>Here, the flow depends on the mode that the user previously selected:</p>
+
+<ul>
+  <li>
+    <p>when the extension is in <strong>“lazy” mode</strong>,  the user has the opportunity to skip the exercise by pressing a button - “ Skip”.</p>
+  </li>
+  <li>
+    <p>when the extension is in <strong>“pro” mode</strong>, the user continues with the exercise, and at the end of the exercise they are presented with two possibilities: they can <strong>go back to the original destination</strong> or they can <strong>continue to do exercises</strong>. Clicking the “Take me away!” button will take the user to their original destination.</p>
+  </li>
+</ul>
+
+<p><img src="image_5.png" alt="image alt text" /></p>
+
+<p>The redirection url is stored in the actual URL of the Zeeguu exercise. After the exercise is done, the user is redirected to that URL. It was decided to use this approach as the client provided us with the code of the Zeeguu platform. It was possible to change the Zeeguu platform code to make this work.</p>
+
+<p><img src="image_6.png" alt="image alt text" /></p>
+
+<h3 id="control">Control</h3>
+
+<h4 id="the-background-page">The background page</h4>
+
+<p>In our extension the background page relies on a single JavaScript file that takes care of initialization when the extension is first installed, and then puts a message listener for the URLs entered. If a URL is entered, the extension checks if the URL is in the black list. If it is, it is intercepted and the user is redirected to the page with a language exercise. The Chrome API’s greatly encourage the use of event-driven programming, therefore The Distraction Shield also implements this. In the background, the extension also tracks user statistics with respect to distractions and language exercises.</p>
+
+<h4 id="content-scripts">Content Scripts</h4>
+
+<p>Using content scripts we inject JavaScript code into the Zeeguu exercise. This way, it is possible to inject a panel that tells the user that it was the extension that sent them there. This is currently possible in two modes: “lazy” and “pro”. The general sequence of actions that are taken when the extension is active is shown below (Step1 and Step2 diagrams).</p>
+
+<h3 id="usage-flow">Usage flow</h3>
+
+<p>The following diagram describes the user interaction with the extension in two steps.</p>
+
+<p><strong>In the first step</strong>, it is presented what happens when the user enters an URL in the browser. It is mentioned that the redirection happens if the entered URL is in the user’s blacklist and if the extension is enabled. This means that the extension is not turned off or disabled because the user recently solved an exercise. <strong>In the second step</strong>, it is presented what happens after the user is redirected to the Zeeguu page.</p>
+
+<p><img src="image_7.png" alt="image alt text" /></p>
+
+<p><img src="image_8.png" alt="image alt text" /></p>
+
+<h3 id="storage">Storage</h3>
+
+<p>The Chrome Extension API provides a possibility to delegate the burden of storage to the browser, and at the same time allow the user to tie the stored data to their google account if they are logged in with one. This part of the Chrome Extension API is used to store statistics and the blacklist of sites.</p>
+
+<h2 id="first-utilization">First utilization</h2>
+
+<p>The flow of the first utilization of the extension is presented below. After the user installs The Distraction Shield, the user is presented with the option of taking a tour that would explain the functionalities of the extension. Together with this all the data that is saved is initialized such that whenever there is a GET-request to the storage, data will not be ‘undefined’ nor will it be ‘NULL’.</p>
+
+<p>Below is an SSD diagram, not of the first install, but of the user starting a new session. The installation is a rather dull SSD where we only initialize values that were not there before. This SSD will occur every time the user starts a new browsing session.</p>
+
+<p><img src="image_9.png" alt="image alt text" /></p>
+
+<h4 id="log-in">Log in</h4>
+
+<p>The login into the Zeeguu platform is handled by the platform itself. When the user is redirected to the language learning exercise, there are two options :</p>
+
+<ul>
+  <li>
+    <p>if the users are not logged in, they are presented with the login page of the Zeeguu platform. After this they will be presented with an exercise.</p>
+  </li>
+  <li>
+    <p>If the users are logged in, they are redirected to a Zeeguu exercise</p>
+  </li>
+</ul>
+
+<h2 id="technology-stack">Technology Stack</h2>
+
+<p>Currently, the Chrome Extensions API is used for the functionality of the extension and JQuery UI for the visual aspects.</p>
+
+<p>Languages :</p>
+
+<ul>
+  <li>
+    <p>JavaScript      : for the functionality and control of the extension</p>
+
+    <ul>
+      <li>ECMAScript 6 : for modularization and class functionality</li>
+    </ul>
+  </li>
+  <li>
+    <p>HTML/ CSS    : for the visual design ( the options pop-up)</p>
+  </li>
+</ul>
+
+<p>Libraries:</p>
+
+<ul>
+  <li>
+    <p>JQuery</p>
+  </li>
+  <li>
+    <p>Bootstrap</p>
+  </li>
+</ul>
+
+<p>Building tools:</p>
+
+<ul>
+  <li>
+    <p>Node : for module management</p>
+  </li>
+  <li>
+    <p>Bower: for package management</p>
+  </li>
+  <li>
+    <p>Broccoli: used for fast build</p>
+  </li>
+</ul>
+
+<h2 id="team-organization">Team Organization</h2>
+
+<p>In order to merge the work of different groups, we met and explained each other’s code. Followed up by having a session of combining all functionalities so far which and make sure everything works properly. After every iteration, we refactored the code in order to incorporate all the feedback received.</p>
+
+<h2 id="appendix">Appendix</h2>
+
+<p><img src="image_10.png" alt="image alt text" /></p>
+
+<h3 id="module-dependencies">Module dependencies</h3>
+
+<h4 id="options-page">Options page</h4>
+
+<p><img src="image_11.png" alt="image alt text" /></p>
+
+<p>The options page is one of the core parts of the extension, therefore it is highly dependent of the other modules.</p>
+
+<ul>
+  <li>
+    <p>The classes are needed for the user settings and for the list with blocked sites.</p>
+  </li>
+  <li>
+    <p>Options page listens to the modification that are happening in the storage and updates the objects corresponding to that.</p>
+  </li>
+  <li>
+    <p>As we collect data about the modification in the user settings, the options page is dependent on the data collection.</p>
+  </li>
+</ul>
+
+<h4 id="statistics-page">Statistics page</h4>
+
+<p><img src="image_12.png" alt="image alt text" /></p>
+
+<p>The Statistics page shows the user information about the :</p>
+
+<ul>
+  <li>
+    <p>Number of interceptions in different time periods ( per day, week, month, total number of intercepts) (<strong>InterceptionCounterTable</strong>)</p>
+  </li>
+  <li>
+    <p>A list of blocked sites and the amount of time the user spent on that site. (<strong>BlacklistStatsTable</strong>)</p>
+  </li>
+  <li>
+    <p>The amount of time a user spent doing exercises for each day. (<strong>ExerciseTimeTable</strong>)</p>
+  </li>
+</ul>
+
+<p>The statistics listens to the changes made in <strong>storage</strong> in order to update all the information.</p>
+
+<h4 id="tooltip-page">Tooltip page</h4>
+
+<p><img src="image_13.png" alt="image alt text" /></p>
+
+<p>The tooltip page is of course very small and has a small amount of functionality therefore this diagram stays quite clean. It only has 3 functions:</p>
+
+<ul>
+  <li>
+    <p>Open the options-page</p>
+  </li>
+  <li>
+    <p>Open the statistics-page</p>
+  </li>
+  <li>
+    <p>Influence the <strong>Blacklist</strong>.</p>
+
+    <ul>
+      <li>
+        <p>All dependencies are due to the functionality for this last function. It is because it has 3 functions in itself:</p>
+
+        <ul>
+          <li>
+            <p>Add The current page to the <strong>Blacklist</strong></p>
+          </li>
+          <li>
+            <p>Stop the interception of the current page (if it is in the blacklist)</p>
+          </li>
+          <li>
+            <p>Start the interception of the current page (if it is in the Blacklist and its interception is turned off)</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="background">Background</h4>
+
+<p><img src="image_14.png" alt="image alt text" /></p>
+
+<p>The background page is the script that always runs. This runs, as the name makes us suspect, in the background of chrome. You don’t see this, but this is essentially what makes the extension. It contains the webRequestListener and does the actual intercepting. Since all of this needs updating everytime the user changes something, there are a lot of dependecies on things like storage and classes. Since everything basically comes together through here we see a lot of dependecies.</p>
+
+<h2 id="change-log">Change Log</h2>
+
+<table class="mbtablestyle">
+  <thead>
+    <tr>
+      <th style="text-align: left">Who</th>
+      <th style="text-align: left">When</th>
+      <th style="text-align: left">Which section</th>
+      <th style="text-align: left">What</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Pieter, Elena</td>
+      <td style="text-align: left">08-03-17</td>
+      <td style="text-align: left">All</td>
+      <td style="text-align: left">Created Doc</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Pieter, Elena</td>
+      <td style="text-align: left">22-03-17</td>
+      <td style="text-align: left">All</td>
+      <td style="text-align: left">Processed meeting notes, implement feedback</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Elena</td>
+      <td style="text-align: left">10-04-17</td>
+      <td style="text-align: left">All</td>
+      <td style="text-align: left">Implement feedback</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Pieter</td>
+      <td style="text-align: left">01-05-2017</td>
+      <td style="text-align: left">Architectural Overview</td>
+      <td style="text-align: left">Updated the intro of ‘the extension platform’</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Pieter</td>
+      <td style="text-align: left">01-05-2017</td>
+      <td style="text-align: left">Visual Design</td>
+      <td style="text-align: left">Removed an obscure reference to the future</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Pieter</td>
+      <td style="text-align: left">01-05-2017</td>
+      <td style="text-align: left">Architectural</td>
+      <td style="text-align: left">Added to the background part of ‘Control’</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Elena</td>
+      <td style="text-align: left">15-05-2017</td>
+      <td style="text-align: left">Architectural</td>
+      <td style="text-align: left">Added diagram of the module dependencies and two step diagram with user flow</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Elena</td>
+      <td style="text-align: left">15-05-2017</td>
+      <td style="text-align: left">Visual</td>
+      <td style="text-align: left">Updated images</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Elena</td>
+      <td style="text-align: left">29-05-2017</td>
+      <td style="text-align: left">Architectural</td>
+      <td style="text-align: left">Updated text based on feedback</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Edser</td>
+      <td style="text-align: left">10-06-2017</td>
+      <td style="text-align: left">Architectural</td>
+      <td style="text-align: left">Implement feedback on text</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Edser</td>
+      <td style="text-align: left">11-06-2017</td>
+      <td style="text-align: left">Architectural</td>
+      <td style="text-align: left">Fix diagrams and feedback on these</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Elena</td>
+      <td style="text-align: left">11-06-2017</td>
+      <td style="text-align: left">Visual</td>
+      <td style="text-align: left">Updated images</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Elena, Edser</td>
+      <td style="text-align: left">12-06-2017</td>
+      <td style="text-align: left">Visual</td>
+      <td style="text-align: left">Fix diagrams</td>
+    </tr>
+  </tbody>
+</table>
+
+
+      </div>
+    </div>
+  <div class="col-md-2"></div>
+</div>
+
+     </div>
+
+    <div class="col-md-12">
+    <!-- Footer -->
+            <div class="row footer">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <h4>Github Repositories</h4>
+                      <ul>
+                      
+                        <li>
+                          <a href="https://github.com/RUGSoftEng/2017-The-Distraction-Shield">
+                            <span class="username">RUGSoftEng/2017-The-Distraction-Shield</span>
+                          </a>
+                        </li>
+                        
+                      </ul>
+                    </div>
+                    <div class="col-md-3">
+                      <h4>Information</h4>
+                      <ul>
+                        <li>
+                          <a href="https://docs.google.com/forms/d/e/1FAIpQLScHTpTaGD19HJd4d7k98FV_20-NwRV0dp9xNMWza7_1KsiGag/viewform">
+                            <span class="feedback">Feedback</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/privacy/">
+                            <span class="privacy">Privacy Policy</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+          <!-- End Footer -->
+
+    </div>
+    <div class="col-md-12">
+    			<div class="row end_footer">
+              <div class="col-md-1"></div>
+              <div class="col-md-6">
+                <p>Copyright &copy; The Distraction Shield 2017</p>
+              </div>
+              <div class="col-md-4"></div>
+              <div class="col-md-1"></div>
+            </div>
+
+    </div>
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/prettify.js"></script>
+    <script>
+      [].forEach.call(document.getElementsByTagName("pre"), function(el) {
+        el.classList.add("prettyprint");
+      });
+
+      prettyPrint();
+    </script>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+
+    <style>
+      pre.prettyprint {
+
+        font-size: 13px;
+        font-family: "Open Sans";
+        padding: 8px 12px;
+        border: 1px solid #bbb;
+        border-radius: 4px;
+      }
+    </style>
+
+  </body>
+
+</html>
