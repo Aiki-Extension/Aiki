@@ -2,5 +2,5 @@ title: The Distraction Shield
 logo: /assets/img/logo.png
 description: The Distraction Shield is a browser extension for blocking distractive websites.
 show_downloads: true
-google_analytics:
+google_analytics: UA-144210107-2
 theme: jekyll-theme-minimal
