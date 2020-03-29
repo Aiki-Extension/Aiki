@@ -62,6 +62,7 @@ export const blockWebsite = async text => {
     let blocked = urls.filter(notBlocked);
     blockedUrls.push(...blocked);
 
+    await setFirebaseData({ blockedUrls });
     await setInStorage({ blockedUrls });
 
     if (blocked.length > 1) {
@@ -90,8 +91,9 @@ export const addExerciseSite = async url => {
     } else {
         message.error('Duplicate exercise site name');
     }
-    
+
     await setHistoricalFirebase({ exerciseSites });
+  
     await setInStorage({ exerciseSites });
 }
 
@@ -99,21 +101,22 @@ export const removeExerciseSite = async name => {
     const res = await getFromStorage('exerciseSites');
     let exerciseSites = res.exerciseSites || defaultExerciseSites;
     exerciseSites = exerciseSites.filter(site => site.name !== name);
-    
+
     await setHistoricalFirebase({ exerciseSites });
     await setInStorage({ exerciseSites });
 }
 
 export const unblockWebsite = (hostname) => {
-    getWebsites().then(oldBlockedUrls => {
+    getWebsites().then(async oldBlockedUrls => {
         let blockedUrls = oldBlockedUrls.filter(blockedUrl =>
             blockedUrl.hostname !== hostname);
-        
+
         setHistoricalFirebase({ blockedUrls});
         return setInStorage({ blockedUrls });
     }).then(() => message.success(`Unblocked ${hostname}`));
 };
 
+//
 export const setTimeout = async (url, timeout) => {
     let res = await getFromStorage('blockedUrls');
     let { blockedUrls } = res; // cant be empty, cause were blocked.
@@ -121,10 +124,12 @@ export const setTimeout = async (url, timeout) => {
         if (blockedUrl.domain === url.domain) {
             // compose a date in the future in milliseconds since epoch,
             // by adding exercise duration milliseconds
+            timeout += timeout;
             blockedUrl.timeout = timeout;
         }
         return blockedUrl;
     });
+
     let doa = url.hostname;
     setHistoricalFirebase({ [doa]: timeout});
     return setInStorage({ blockedUrls });

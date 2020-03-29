@@ -22,14 +22,14 @@ class ExerciseOptions extends React.Component {
     newExerciseSite: null
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     addStorageListener(() => this.setup());
     this.setup();
   }
 
   setup() {
     getFromStorage('currentExerciseSite', 'exerciseSites', 'exerciseDuration')
-      .then(res => {
+      .then(async res => {
         let currentExerciseSite = res.currentExerciseSite || defaultExerciseSite.name;
         let exerciseSites = res.exerciseSites || defaultExerciseSites;
         let exerciseDuration = res.exerciseDuration || defaultexerciseDuration;
@@ -38,19 +38,24 @@ class ExerciseOptions extends React.Component {
       this.setState({ currentExerciseSite, exerciseSites, exerciseDuration });
     });
   }
-
   setCurrentExerciseSite(currentExerciseSite) {
     setHistoricalFirebase({ currentExerciseSite});
     setInStorage({ currentExerciseSite }).then(() => {
       this.setState({ currentExerciseSite });
     });
+    await setFirebaseData({ currentExerciseSite }).then(() => {
+      this.setState({ currentExerciseSite });
+    })
   }
 
   // time is a moment object
-  setExerciseDuration(time) {
+  async setExerciseDuration(time) {
     const exerciseDuration = time.valueOf();
     setHistoricalFirebase({ exerciseDuration });
     setInStorage({ exerciseDuration }).then(() => {
+      this.setState({ exerciseDuration });
+    });
+    await setFirebaseData({ exerciseDuration }).then(() => {
       this.setState({ exerciseDuration });
     });
   }

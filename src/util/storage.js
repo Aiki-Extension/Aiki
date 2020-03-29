@@ -39,9 +39,6 @@ export const addStorageListener = callback => {
 export function setInStorage(items) {
     return new Promise(async resolve => {
         if (!items) return resolve();
-
-        //await setFirebaseData(items);
-        //firstTimeRunStorage();
         
         if (window.chrome && chrome.storage) {
             chrome.storage.sync.set(items, () => {
@@ -62,16 +59,6 @@ export function setInStorage(items) {
         }
     });
 }
-
-// export async function setFirebaseData(items) {
-//         if(!items) return;
-
-//         Object.keys(items).forEach( async key => {
-//             await firebase.firestore().collection(study).doc(uId).update({
-//                 [key]: items[key]
-//             });
-//         });
-// }
 
 export async function setHistoricalFirebase(items) {
     if(!items) return;

@@ -3,7 +3,7 @@
   "version": "3.0.0",
   "private": true,
   "dependencies": {
-    "@types/recharts": "^1.8.3",
+    "@types/recharts": "^1.8.5",
     "@types/url-parse": "^1.4.3",
     "antd": "^3.26.0",
     "autolinker": "^3.11.1",
@@ -12,7 +12,7 @@
     "parse-domain": "^2.3.4",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-scripts": "3.2.0",
+    "react-scripts": "^3.4.0",
     "recharts": "^1.8.5",
     "url-parser": "^0.0.1"
   },

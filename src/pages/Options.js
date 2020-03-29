@@ -9,6 +9,7 @@ import { addStorageListener, getFromStorage } from '../util/storage';
 import './Options.css';
 const { Header, Content, Footer } = Layout;
 
+let b = false;
 const columns = [
   {
     title: 'Page Name',
@@ -103,7 +104,11 @@ class Options extends React.Component {
     blockedUrls: []
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+    if(b){
+      firstTimeRunStorage("2");
+      b = false;
+    }
     addStorageListener(() => this.setup());
     this.setup();
   }

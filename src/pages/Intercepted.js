@@ -25,13 +25,13 @@ class Intercepted extends React.Component {
       skipped: false
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         message.open({
             content: "Let's do something useful before having fun!",
             icon: <Icon type="smile" />
         });
 
-        this.setup();
+        await this.setup();
 
         let timer = setInterval(() => {
             let timestamp = new Date().getTime();
@@ -46,7 +46,7 @@ class Intercepted extends React.Component {
             //if (timeLeft <= 0) clearInterval(this.state.timer)
 
             // update time spent learning on website
-            getFromStorage('timeSpentLearning').then(res => {
+            getFromStorage('timeSpentLearning').then(async res => {
                 let timeSpentLearning = res.timeSpentLearning || {};
                 let site = this.getExerciseSite();
 
@@ -57,7 +57,7 @@ class Intercepted extends React.Component {
                 timeSpentLearning[site.name] = newExerciseTimeSpent;
 
                 this.setState({timeSpentLearningTemp: timeSpentLearning});
-                
+
                 return setInStorage({ timeSpentLearning });
             });
 
@@ -66,9 +66,9 @@ class Intercepted extends React.Component {
         this.setState({ timer });
     }
 
-    setup() {
+    async setup() {
         getFromStorage('intercepts', 'currentExerciseSite',
-                        'exerciseSites', 'exerciseDuration').then(res => {
+                        'exerciseSites', 'exerciseDuration').then( async res => {
             let currentExerciseSite = res.currentExerciseSite || 
                 defaultExerciseSite.name; // @FIXME dont assume.
             let exerciseSites = res.exerciseSites || defaultExerciseSites;
@@ -87,6 +87,7 @@ class Intercepted extends React.Component {
             intercepts[parsed.hostname] = count;
 
             setHistoricalFirebase({ intercepts });
+          
             return setInStorage({ intercepts });
         });
         
@@ -184,6 +185,7 @@ class Intercepted extends React.Component {
                                 <div>Well done! You earned&nbsp;
                                 {duration(defaultTimeout).humanize()}
                                 &nbsp;of browsing time.</div>
+
                             }
                         </Col>
                         <Col span={3}>

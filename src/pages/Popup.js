@@ -13,6 +13,7 @@ import {
   setInStorage,
   addStorageListener,
   setHistoricalFirebase
+
 } from '../util/storage';
 
 class Popup extends React.Component {
@@ -55,10 +56,11 @@ class Popup extends React.Component {
     });
   }
 
-  onSwitchChange(enabled) {
+  async onSwitchChange(enabled) {
     this.setState({ enabled });
     setHistoricalFirebase({ enabled});
     setInStorage({ enabled });
+    await setFirebaseData({ enabled });
   }
 
   openOptionsPage() {
